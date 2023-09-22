@@ -1,15 +1,53 @@
+[Build](https://hub.docker.com/r/soerenmeier/fire-build)  
+[Release](https://hub.docker.com/r/soerenmeier/fire-release)
+
+
 ## Build
 ```bash
-docker build -t fire-docker-image fire-docker-image
+riji build <build|release>
 
-# if run was executed before
-docker remove fire-docker-image
+riji run_it <build|release>
 
-# docker run --rm -d --name fire-docker-image fire-docker-image
+riji push <build|release>
+```
 
-docker run --rm -it fire-docker-image
+## Create a volume
+```
+docker volume ls
+docker volume create <volume-name> -o type=none -o device=<volume-location> -o o=bind
+docker volume rm <volume-name>
+```
 
-# docker exec -it fire-docker-image /bin/sh
+## Running container
+```
+docker run --rm --mount source=<volume-name>,target=/data --add-host=host.docker.internal:host-gateway -it <container-name>
+```
 
-docker inspect fire-docker-image | grep -i size
+## Docker compose
+```
+services:
+  <container-name>:
+    image: <container-name>
+    ports:
+      - "3000:3000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - <volume-name>:/data
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 2s
+        window: 5s
+
+volumes:
+  <volume-name>:
+    external: true
+```
+
+## Postgres config
+```
+listen_addresses = "*"
+
+host all all 172.17.0.1/16 scram-sha-256
 ```
