@@ -1,8 +1,8 @@
 fn help() {
 	print([
-		"- build <build|release>",
-		"- run <build|release>",
-		"- push <build|release>"
+		"- build <ci|build|release>",
+		"- run <ci|build|release>",
+		"- push <ci|build|release>"
 	]);
 }
 
@@ -11,7 +11,7 @@ fn _name_from_tag(tag) {
 }
 
 fn build() {
-	print("build <build|release>");
+	print("build <ci|build|release>");
 }
 
 // tag: build | release
@@ -25,7 +25,7 @@ fn build(tag) {
 }
 
 fn run() {
-	print("run <build|release>");
+	print("run <ci|build|release>");
 }
 
 // run interactive
@@ -39,7 +39,7 @@ fn run(tag) {
 }
 
 fn push() {
-	print("push <build|release>");
+	print("push <ci|build|release>");
 }
 
 fn push(tag) {
