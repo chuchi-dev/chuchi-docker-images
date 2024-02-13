@@ -50,3 +50,12 @@ fn push(tag) {
 	]);
 	push.execute();
 }
+
+fn publish_all() {
+	build("ci");
+	push("ci");
+	build("build");
+	push("build");
+	build("release");
+	push("release");
+}
