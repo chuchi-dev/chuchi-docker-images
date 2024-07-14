@@ -7,7 +7,7 @@ fn help() {
 }
 
 fn _name_from_tag(tag) {
-	return "fire-" + tag;
+	return "chuchi-" + tag;
 }
 
 fn build() {

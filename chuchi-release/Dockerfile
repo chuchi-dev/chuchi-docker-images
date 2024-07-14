@@ -9,7 +9,7 @@ RUN apt install -y curl wget
 RUN apt clean
 
 # Install riji
-RUN wget -O /usr/local/bin/riji https://github.com/fire-lib/riji/releases/latest/download/riji
+RUN wget -O /usr/local/bin/riji https://github.com/chuchi-dev/riji/releases/latest/download/riji
 RUN chmod +x /usr/local/bin/riji
 
 RUN riji --version

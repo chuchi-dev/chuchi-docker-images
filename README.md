@@ -1,5 +1,5 @@
-[Build](https://hub.docker.com/r/soerenmeier/fire-build)  
-[Release](https://hub.docker.com/r/soerenmeier/fire-release)
+[Build](https://hub.docker.com/r/soerenmeier/chuchi-build)
+[Release](https://hub.docker.com/r/soerenmeier/chuchi-release)
 
 
 ## Build

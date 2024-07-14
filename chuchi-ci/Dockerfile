@@ -11,16 +11,12 @@ RUN apt install -y nodejs npm
 RUN apt clean
 
 # Install riji
-RUN wget -O /usr/local/bin/riji https://github.com/fire-lib/riji/releases/latest/download/riji
+RUN wget -O /usr/local/bin/riji https://github.com/chuchi-dev/riji/releases/latest/download/riji
 RUN chmod +x /usr/local/bin/riji
-
-RUN adduser --disabled-password --shell /bin/bash build
-USER build
-WORKDIR /home/build
 
 # Install latest Rust
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-ENV PATH="/home/build/.cargo/bin:${PATH}"
+ENV PATH="/root/.cargo/bin:${PATH}"
 
 RUN node --version && npm --version && cargo --version && riji --version
 
