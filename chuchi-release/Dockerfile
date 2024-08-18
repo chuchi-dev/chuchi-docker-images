@@ -16,6 +16,7 @@ RUN riji --version
 
 RUN adduser --disabled-password --shell /bin/bash release
 USER release
+ENV HOME="/home/release"
 WORKDIR /home/release
 
 CMD ["/bin/bash"]

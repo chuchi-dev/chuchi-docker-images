@@ -19,7 +19,7 @@ fn build(tag) {
 	tag = _name_from_tag(tag);
 
 	let build = cmd([
-		"docker", "build", "-t", "soerenmeier/" + tag, tag
+		"docker", "build", "-t", "soerenmeier/" + tag, tag, "--pull"
 	]);
 	build.execute();
 }

@@ -16,12 +16,17 @@ RUN chmod +x /usr/local/bin/riji
 
 RUN adduser --disabled-password --shell /bin/bash build
 USER build
+ENV HOME="/home/build"
 WORKDIR /home/build
 
 # Install latest Rust
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ENV PATH="/home/build/.cargo/bin:${PATH}"
 
-RUN node --version && npm --version && cargo --version && riji --version
+# install wasm
+RUN rustup target add wasm32-unknown-unknown
+RUN cargo install wasm-bindgen-cli
+
+RUN node --version && npm --version && cargo --version && riji --version && wasm-bindgen --version
 
 CMD ["/bin/bash"]
