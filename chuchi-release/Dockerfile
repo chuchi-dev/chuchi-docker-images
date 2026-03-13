@@ -4,7 +4,7 @@ SHELL ["/bin/bash", "-c"]
 
 # Install necessary packages and Bash shell
 RUN apt update
-RUN apt install -y curl wget
+RUN apt install -y curl wget adduser
 # cleanup
 RUN apt clean
 

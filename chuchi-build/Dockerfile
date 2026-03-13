@@ -4,7 +4,7 @@ SHELL ["/bin/bash", "-c"]
 
 # Install necessary packages and Bash shell
 RUN apt update
-RUN apt install -y build-essential libssl-dev curl wget cmake pkg-config
+RUN apt install -y build-essential libssl-dev curl wget cmake pkg-config adduser
 # Install lts node
 RUN apt install -y nodejs npm
 # cleanup
